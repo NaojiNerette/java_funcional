@@ -10,20 +10,15 @@ public class EjemploEjercicios {
     public static void main(String[] args) {
 
         String cadena = "hola mundo como esta el mundo , lindo mundo";
-
-        
-        Aritmetica contar = (a, b) -> {
+        Aritmetica contarPalabraRepetida = (a, b) -> {
                 return Arrays.stream(a.split(" "))
                 .map(w -> w.toUpperCase())
                 .filter(w -> w.equalsIgnoreCase(b))
                 .count();
         };
 
-        System.out.println("Cantidad palabras mundo: " + conteo);
-
-
         Calculadora calc = new Calculadora();
-
+        calc.conteo(cadena, "mundo", contarPalabraRepetida);
 
         
 
