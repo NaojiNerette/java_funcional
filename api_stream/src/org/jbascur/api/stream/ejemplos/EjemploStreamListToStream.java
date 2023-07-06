@@ -1,0 +1,37 @@
+package org.jbascur.api.stream.ejemplos;
+
+import org.jbascur.api.stream.ejemplos.models.Usuario;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class EjemploStreamListToStream {
+    public static void main(String[] args) {
+
+        List<Usuario> lista = new ArrayList<>();
+        lista.add(new Usuario("Pedro", "Perez"));
+        lista.add(new Usuario("Juan", "Garcia"));
+        lista.add(new Usuario("Diego", "Dominguez"));
+        lista.add(new Usuario("Lalo", "Lalona"));
+        lista.add(new Usuario("Tito", "Titona"));
+        lista.add(new Usuario("Bruce", "Lee"));
+        lista.add(new Usuario("Bruce", "Willis"));
+
+        Stream<String> nombres = lista.stream().map(u -> u.getNombre().toUpperCase()
+                .concat(" ")
+                .concat(u.getApellido().toUpperCase()))
+                .flatMap(nombre -> {
+                    if(nombre.contains("bruce".toUpperCase())){
+                        return Stream.of(nombre);
+                    }
+                    return Stream.empty();
+                })
+                .map(String::toLowerCase)
+                .peek(System.out::println);
+
+        System.out.println(nombres.count());
+
+    }
+
+}
