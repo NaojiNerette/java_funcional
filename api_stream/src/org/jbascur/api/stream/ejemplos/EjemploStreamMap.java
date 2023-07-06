@@ -2,10 +2,7 @@ package org.jbascur.api.stream.ejemplos;
 
 import org.jbascur.api.stream.ejemplos.models.Usuario;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.SimpleTimeZone;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

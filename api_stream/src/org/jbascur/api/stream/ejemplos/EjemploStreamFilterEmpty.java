@@ -1,8 +1,5 @@
 package org.jbascur.api.stream.ejemplos;
 
-import org.jbascur.api.stream.ejemplos.models.Usuario;
-
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class EjemploStreamFilterEmpty {
